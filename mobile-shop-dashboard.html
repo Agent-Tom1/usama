@@ -1,0 +1,170 @@
+
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>mobile shop dashboard</title>
+    <style>
+        body {
+            font-family: arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        .dashboard {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px;
+        }
+        .card {
+            background-color: #f0f0f0;
+            padding: 20px;
+            margin: 20px;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .card-header {
+            background-color: #333;
+            color: #fff;
+            padding: 10px;
+            text-align: center;
+            border-bottom: 1px solid #ddd;
+        }
+        .card-body {
+            padding: 20px;
+        }
+        table {
+            border-collapse: collapse;
+            width: 100%;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 10px;
+            text-align: left;
+        }
+        th {
+            background-color: #f0f0f0;
+        }
+    </style>
+</head>
+<body>
+    <div class="dashboard">
+        <h1>mobile shop dashboard</h1>
+        <div class="card">
+            <div class="card-header">
+                <h2>mobile phones</h2>
+            </div>
+            <div class="card-body">
+                <table>
+                    <tr>
+                        <th>model</th>
+                        <th>price</th>
+                        <th>quantity</th>
+                    </tr>
+                    <tr>
+                        <td>iphone 13</td>
+                        <td>$999</td>
+                        <td>10</td>
+                    </tr>
+                    <tr>
+                        <td>samsung galaxy s22</td>
+                        <td>$899</td>
+                        <td>15</td>
+                    </tr>
+                    <tr>
+                        <td>google pixel 6</td>
+                        <td>$699</td>
+                        <td>20</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-header">
+                <h2>accessories</h2>
+            </div>
+            <div class="card-body">
+                <table>
+                    <tr>
+                        <th>accessory</th>
+                        <th>price</th>
+                        <th>quantity</th>
+                    </tr>
+                    <tr>
+                        <td>screen protector</td>
+                        <td>$10</td>
+                        <td>50</td>
+                    </tr>
+                    <tr>
+                        <td>phone case</td>
+                        <td>$20</td>
+                        <td>30</td>
+                    </tr>
+                    <tr>
+                        <td>headphones</td>
+                        <td>$50</td>
+                        <td>20</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-header">
+                <h2>sales</h2>
+            </div>
+            <div class="card-body">
+                <table>
+                    <tr>
+                        <th>date</th>
+                        <th>sales</th>
+                        <th>revenue</th>
+                    </tr>
+                    <tr>
+                        <td>2024-01-01</td>
+                        <td>10</td>
+                        <td>$1000</td>
+                    </tr>
+                    <tr>
+                        <td>2024-01-02</td>
+                        <td>15</td>
+                        <td>$1500</td>
+                    </tr>
+                    <tr>
+                        <td>2024-01-03</td>
+                        <td>20</td>
+                        <td>$2000</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+    <script>
+        // add event listener to window load
+        window.addeventlistener('load', function() {
+            // update sales data
+            const salesdata = [
+                { date: '2024-01-01', sales: 10, revenue: 1000 },
+                { date: '2024-01-02', sales: 15, revenue: 1500 },
+                { date: '2024-01-03', sales: 20, revenue: 2000 }
+            ];
+            const salestable = document.queryselector('table:nth-child(3)');
+            const salesbody = salestable.tbodies[0];
+            salesdata.foreach(function(row) {
+                const rowelement = document.createelement('tr');
+                const datecell = document.createelement('td');
+                const salescell = document.createelement('td');
+                const revenuecell = document.createelement('td');
+                datecell.textcontent = row.date;
+                salescell.textcontent = row.sales;
+                revenuecell.textcontent = `$${row.revenue}`;
+                rowelement.appendchild(datecell);
+                rowelement.appendchild(salescell);
+                rowelement.appendchild(revenuecell);
+                salesbody.appendchild(rowelement);
+            });
+        });
+    </script>
+</body>
+</html>
